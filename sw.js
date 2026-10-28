@@ -1,13 +1,13 @@
 /* Ultra Max 7 Pro Premium — change CACHE_VERSION when deploying a new client version.
    Same-origin static assets are cached; enquiries and external sites are NOT cached. */
-const CACHE_VERSION = 'ultramax7pro-appliancetech-v1';
+const CACHE_VERSION = 'ultramax7pro-appliancetech-v4';
 const APP_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 const ASSETS = [
   './', './index.html', './about.html', './services.html', './gallery.html',
   './faq.html', './testimonials.html', './contact.html', './offline.html',
   './styles.css', './premium.css', './brand.css', './site-config.js', './script.js',
-  './premium.js', './chatbot.js', './pwa.js', './manifest.webmanifest',
+  './premium.js', './home-gallery.js', './chatbot.js', './pwa.js', './manifest.webmanifest',
   './assets/icon-192.png', './assets/icon-512.png', './assets/icon-maskable.png',
   './assets/icon-180.png', './assets/appliancetech-logo.webp',
   './assets/aircon-install-commercial.webp',
