@@ -121,7 +121,10 @@
     qs('#projectNext')?.addEventListener('click',()=>displayModal((current+1)%projects.length));
     dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
     dialog?.addEventListener('keydown',e=>{if(e.key==='ArrowRight')displayModal((current+1)%projects.length);if(e.key==='ArrowLeft')displayModal((current-1+projects.length)%projects.length);});
-    render('All');
+    const requestedCategory=new URLSearchParams(location.search).get('service');
+    const initialCategory=categories.includes(requestedCategory)?requestedCategory:'All';
+    if(initialCategory!=='All'){filterBar.querySelectorAll('button').forEach((btn,i)=>{const active=categories[i]===initialCategory;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));});}
+    render(initialCategory);
   }
 
   const trust=qs('#trustGrid');
