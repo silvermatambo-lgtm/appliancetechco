@@ -76,13 +76,37 @@
     reveals.forEach(item => item.classList.add('visible'));
   }
 
-  $$('.flip-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const already = card.classList.contains('flipped');
-      $$('.flip-card').forEach(c => { c.classList.remove('flipped'); c.setAttribute('aria-pressed', 'false'); });
-      if (!already) { card.classList.add('flipped'); card.setAttribute('aria-pressed', 'true'); }
+  // Flip cards animate on their own on both touch and desktop.
+  // Hover/focus always reveals the back; clicking toggles as a fallback.
+  const flipCards = $('.flip-card');
+  if (flipCards.length) {
+    let active = -1;
+    let hoverCard = null;
+    const showNext = () => {
+      if (document.hidden || hoverCard) return;
+      active = (active + 1) % (flipCards.length + 1);
+      flipCards.forEach((card, i) => {
+        const on = i === active;
+        card.classList.toggle('auto-flipped', on);
+        card.setAttribute('aria-pressed', String(on));
+      });
+    };
+    flipCards.forEach(card => {
+      card.addEventListener('mouseenter', () => { hoverCard = card; card.classList.add('auto-flipped'); card.setAttribute('aria-pressed','true'); });
+      card.addEventListener('mouseleave', () => { hoverCard = null; card.classList.remove('auto-flipped'); card.setAttribute('aria-pressed','false'); });
+      card.addEventListener('focusin', () => { hoverCard = card; card.classList.add('auto-flipped'); });
+      card.addEventListener('focusout', () => { hoverCard = null; });
+      card.addEventListener('click', () => {
+        const on = !card.classList.contains('auto-flipped');
+        card.classList.toggle('auto-flipped',on);
+        card.setAttribute('aria-pressed',String(on));
+      });
     });
-  });
+    if (!reduced) {
+      showNext();
+      window.setInterval(showNext, 3200);
+    }
+  }
 
   const year = $('#year'); if (year) year.textContent = String(new Date().getFullYear());
   const dialog = $('#installDialog');
