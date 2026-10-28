@@ -30,7 +30,7 @@
   qsa('[data-client-name]').forEach(el=> el.textContent=c.companyName || 'Client company');
   qsa('[data-brand-name]').forEach(el=> el.textContent=c.brandName || c.companyName || 'ULTRA MAX 7 PRO');
   qsa('[data-brand-initials]').forEach(el=> { el.textContent=c.brandInitials || 'U7'; if(c.brandLogo && safeImage(c.brandLogo)){ const im=mk('img','brand-client-image'); im.src=safeImage(c.brandLogo); im.alt=''; el.replaceChildren(im); }});
-  qsa('[data-demo-caption]').forEach(el => el.textContent = c.demoMode ? 'DEMONSTRATION FIGURES — replace with approved business data' : 'Business at a glance');
+  qsa('[data-demo-caption]').forEach(el => el.textContent = 'Website content and service information — not company performance claims');
   if (c.phoneNumber) qsa('[data-client-phone]').forEach(el=> {el.textContent=c.phoneNumber;el.href=`tel:${String(c.phoneNumber).replace(/[^+\d]/g,'')}`;});
 
   // Counter animations without fabricated numbers. Source controlled in site-config.js.
@@ -91,8 +91,8 @@
   const compare=qs('#beforeAfter');
   if(compare && c.beforeAfter){
     const before=qs('#beforeImage'),after=qs('#afterImage'), slider=qs('#compareRange'),value=qs('#compareValue');
-    if(before && after && slider){before.src=safeImage(c.beforeAfter.before);after.src=safeImage(c.beforeAfter.after);before.alt='Illustration before changes';after.alt='Illustration after changes';
-      const update=()=>{const pct=Math.max(0,Math.min(100,Number(slider.value)));compare.style.setProperty('--compare',`${pct}%`);if(value)value.textContent=`${pct}% before`;};slider.addEventListener('input',update);update();}
+    if(before && after && slider){before.src=safeImage(c.beforeAfter.before);after.src=safeImage(c.beforeAfter.after);before.alt='Commercial refrigeration compressor photograph';after.alt='Cooling unit repair photograph';
+      const update=()=>{const pct=Math.max(0,Math.min(100,Number(slider.value)));compare.style.setProperty('--compare',`${pct}%`);if(value)value.textContent=`${pct}% first image`;};slider.addEventListener('input',update);update();}
     const title=qs('#compareTitle');if(title)title.textContent=c.beforeAfter.title||'Before and after';
     const caption=qs('#compareCaption');if(caption)caption.textContent=c.beforeAfter.caption||'';
   }
@@ -103,7 +103,7 @@
   if(projectList){
     const filterBar=qs('#projectFilters');const categories=['All',...new Set(projects.map(p=>p.category || 'Other'))];
     const dialog=qs('#projectDialog');const photo=qs('#projectFullImage');const heading=qs('#projectDialogTitle');const details=qs('#projectDialogDescription');let current=0;
-    const displayModal=i=>{current=i;const p=projects[i];photo.src=safeImage(p.image);photo.alt=p.title;heading.textContent=p.title;details.textContent=p.description||'';if(c.demoMode)details.textContent+=' · Demo image, not completed client work.';};
+    const displayModal=i=>{current=i;const p=projects[i];photo.src=safeImage(p.image);photo.alt=p.title;heading.textContent=p.title;details.textContent=p.description||'';};
     const show=i=>{displayModal(i);if(dialog?.showModal)dialog.showModal();};
     const render=category=>{
       projectList.replaceChildren();projects.forEach((p,i)=>{
@@ -127,7 +127,7 @@
   const trust=qs('#trustGrid');
   if(trust){(c.trustItems||[]).forEach((v,i)=>{const div=mk('article','trust-card reveal slide-up');div.append(mk('span','trust-symbol',['✧','◇','✓'][i%3]),mk('strong','',v));trust.append(div);});}
   const reviews=qs('#premiumReviews');
-  if(reviews){const list=(c.testimonials||[]).filter(x=>x.quote && x.name);if(!list.length){reviews.append(mk('p','review-placeholder','Customer reviews are not published in this template. Add only genuine, approved reviews in site-config.js.'));}
+  if(reviews){const list=(c.testimonials||[]).filter(x=>x.quote && x.name);if(!list.length){reviews.append(mk('p','review-placeholder','Customer reviews will appear here once verified and approved.'));}
     else list.forEach(x=>{const card=mk('blockquote','verified-review');card.append(mk('p','',`“${x.quote}”`),mk('footer','',`${x.name}${x.context?' — '+x.context:''}`));reviews.append(card);});}
 
   // Pointer-only 3D hover, short travel, and no disabled-motion penalties.
