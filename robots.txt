@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Demo version — enable indexing only after client approval and domain go-live.

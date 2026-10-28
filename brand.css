@@ -1,0 +1,30 @@
+
+/* APPLIANCE TECH CO — custom brand skin, retained Ultra Max 7 Pro engine */
+:root{--navy:#081c38;--teal:#16bdf4;--teal-deep:#087ba9}
+.header{background:rgba(3,16,37,.94);box-shadow:0 8px 28px rgba(0,0,0,.16);padding-left:clamp(16px,4vw,64px);padding-right:clamp(16px,4vw,64px)}
+.header .brand{min-width:0;gap:10px;letter-spacing:-.035em;font-size:clamp(1rem,1.8vw,1.35rem);white-space:nowrap;text-transform:uppercase}
+.header-symbol{display:block;width:52px;height:52px;object-fit:contain;flex-shrink:0;border-radius:10px}
+#primaryNav{gap:clamp(10px,1.8vw,28px)}#primaryNav a{font-size:.93rem;font-weight:650}
+.hero{min-height:650px}.hero-overlay{background:linear-gradient(90deg,rgba(2,9,25,.85),rgba(5,16,32,.24) 83%)}
+.hero-content{margin-left:clamp(25px,8vw,138px);margin-right:auto;max-width:850px}
+.hero h1{max-width:900px;font-size:clamp(2.6rem,6vw,5.7rem);text-wrap:balance}
+.hero p{max-width:720px}.hero .eyebrow{color:#71dfff}
+.btn{background:linear-gradient(110deg,#0daae7,#69e0fb);color:#021729;box-shadow:0 12px 28px #06477322}
+.btn-outline,.btn-glass{box-shadow:none}
+.kicker{color:#099bd0}.footer-main{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.footer-main .footer-logo{width:min(480px,100%);max-height:140px;object-fit:contain;object-position:left;background:#fff;border-radius:12px;padding:8px}
+.footer-main a{color:#7adffb}
+.client-photo-preview{text-align:center;background:linear-gradient(125deg,#edfaff,#f7fafc)}
+.client-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px;max-width:1240px;margin:30px auto}
+.client-photo-grid a{position:relative;overflow:hidden;border-radius:22px;height:clamp(245px,27vw,380px);display:block;box-shadow:0 15px 35px #07284620}
+.client-photo-grid img{height:100%;width:100%;object-fit:cover;transition:transform .6s ease}
+.client-photo-grid a:hover img{transform:scale(1.045)}.client-photo-grid span{position:absolute;bottom:0;left:0;right:0;color:white;background:linear-gradient(transparent,#04172bec);padding:45px 20px 18px;font-weight:780;text-align:left}
+.client-photo-preview .section-head{margin-left:auto;margin-right:auto}.client-photo-preview .btn{margin-top:14px}
+.client-proof{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.client-proof img{width:100%;max-height:460px;object-fit:cover;border-radius:24px}
+.client-contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}.client-contact-actions .btn{font-size:.93rem}
+.feature-visual{background:radial-gradient(circle at 20% 15%,#2fc5f7 0%,#0c4777 60%,#071b3a 100%);color:white}
+.inner-hero{background:radial-gradient(circle at 90% 12%,#11639d 0%,transparent 43%),linear-gradient(130deg,#081a35,#0e3b60)}
+.project-card img{object-fit:cover}
+@media(max-width:950px){.header{height:76px}.header-symbol{width:43px;height:43px}.brand span{max-width:175px;overflow:hidden;text-overflow:ellipsis}.client-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.client-photo-grid a:last-child{display:none}}
+@media(max-width:640px){.header{padding:0 14px}.header .brand{font-size:.96rem}.header-symbol{width:38px;height:38px}.hero{min-height:680px;height:92svh}.hero-content{margin:85px auto 0;width:89%}.hero h1{font-size:clamp(2.55rem,10vw,4rem)}.hero p{font-size:1rem;line-height:1.6}.hero .eyebrow{font-size:.58rem;letter-spacing:.14em}.slide-controls{bottom:76px}.client-photo-grid{grid-template-columns:1fr}.client-photo-grid a{height:320px}.client-photo-grid a:last-child{display:block}.client-proof{grid-template-columns:1fr}.client-contact-actions .btn{width:100%;justify-content:center}}
